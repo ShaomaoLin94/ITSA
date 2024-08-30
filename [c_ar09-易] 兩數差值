@@ -5,7 +5,7 @@ using namespace std;
 int main(void)
 {   
     string str;
-	  while(cin >> str){
+    while(cin >> str){
         vector<int> num;
         int size = str.size();
         for(int i=0; i<size; i++){      //將數字放入另一個容器num中，因為輸入會包含煩人的','
@@ -35,7 +35,7 @@ int main(void)
             max = max*10 + num[i];
         }
         
-        cout << max-min << '\n';
+	cout << max-min << '\n';
     }
 
     return 0;
