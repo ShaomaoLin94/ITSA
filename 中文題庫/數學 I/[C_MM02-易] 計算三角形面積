@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(){
+
+    int base, height;
+
+    scanf("%d %d", &base, &height);
+
+    printf("%.1f\n", (double)(base*height)/2);
+
+    return 0;
+
+}
