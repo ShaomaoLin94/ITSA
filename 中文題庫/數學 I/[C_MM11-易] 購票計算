@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+
+    int N;
+    while(scanf("%d", &N)!=EOF){
+        int coins_type[3] = {10, 5, 1};    //儲存各類面額硬幣
+        int coins_num[3] = {0};            //紀錄各類硬幣數量
+        for(int i=0; i<3; i++){            //先從面額較大的硬幣開始扣(Greedy Algorithm) 這樣所需的硬幣數量必為最少
+            while(N>=coins_type[i]){       
+                coins_num[i]++;
+                N -= coins_type[i];
+            }
+            printf("NT%d=%d\n", coins_type[i], coins_num[i]);   //沒得扣就輸出
+        }
+    }
+
+	return 0;
+}
