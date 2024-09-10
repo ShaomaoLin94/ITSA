@@ -1,0 +1,115 @@
+2024/09/01
+
+// C寫法
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+int len;
+char res[3000];
+
+void multiplier(int num){      //直接相乘可能會溢位，轉成字串處理
+    
+    long long tmp, carry = 0;  //tmp 儲存當前乘積 carry儲存進位
+    
+    for(int i=0; i<len; i++){
+        tmp = (res[i] - '0') * num + carry;
+        res[i] = (tmp % 10) + '0';
+        carry = tmp / 10;
+    }
+
+    while(carry > 0){                  //如果超出目前len值則更新長度
+        res[len++] = (carry % 10)+'0';
+        carry /= 10;
+    }
+
+    res[len] = '\0';    //字串結尾
+
+    return;
+}
+
+
+int main(){
+
+    int n;
+    scanf("%d", &n);
+
+    len = 1;     //初始化res，len的作用是最後檢查有多少0時不需要整個res都檢查
+    res[0]='1';
+    res[1]='\0';
+
+    int num;
+    for(int i=0; i<n; i++){
+        scanf("%d", &num);
+        multiplier(num);
+    }
+
+    int ans = 0;
+    for(int i=0; i<len; i++){   //i<len也可以改成 res[i]!='\0'    
+        if(res[i]=='0'){
+            ans++;
+        }
+    }
+
+    printf("%d\n", ans);
+
+    return 0;
+    
+}
+
+
+//C++寫法(這題跟C沒什麼差)
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int len;
+vector<char> res(3000);
+
+void multiplier(int num){      
+    
+    long long tmp, carry = 0;  
+    
+    for(int i=0; i<len; i++){
+        tmp = (res[i] - '0') * num + carry;
+        res[i] = (tmp % 10) + '0';
+        carry = tmp / 10;
+    }
+
+    while(carry > 0){
+        res[len++] = (carry % 10)+'0';
+        carry /= 10;
+    }
+
+
+    return;
+}
+
+
+int main(){
+
+    int n;
+    cin >> n;
+
+    len = 1;
+    res[0]='1';
+
+    int num;
+    for(int i=0; i<n; i++){
+        cin >> num;
+        multiplier(num);
+    }
+
+    int ans = 0;
+    for(int i=0; res[i]!='\0'; i++)  {    
+        if(res[i]=='0'){
+            ans++;
+        }
+    }
+
+    cout << ans << '\n';
+
+    return 0;
+    
+}
