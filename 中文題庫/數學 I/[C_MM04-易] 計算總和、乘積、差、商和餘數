@@ -10,9 +10,9 @@ int main(int argc, char *argv[]) {
         printf("%d-%d=%d\n", num1, num2, num1-num2);
         
         int quotient, rem;
-        if(num1<0){
-            quotient = num1/num2 - 1;
-            rem = num1%num2 + num2;
+        if(num1<0){                              //判斷是不是第一個數是不是負數(題目要求餘數要>=0)
+            quotient = num1/num2 - 1;            /*商要多減一
+            rem = num1%num2 + num2;                比如 -15/2=-7...-1 要改成 -8...1*/
         }
         else{
             quotient = num1/num2;
