@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+
+    int num1, num2;
+    while(scanf("%d %d", &num1, &num2)!=EOF){
+        printf("%d+%d=%d\n", num1, num2, num1+num2);
+        printf("%d*%d=%d\n", num1, num2, num1*num2);
+        printf("%d-%d=%d\n", num1, num2, num1-num2);
+        
+        int quotient, rem;
+        if(num1<0){
+            quotient = num1/num2 - 1;
+            rem = num1%num2 + num2;
+        }
+        else{
+            quotient = num1/num2;
+            rem = num1%num2;
+        }
+        printf("%d/%d=%d...%d\n", num1, num2, quotient, rem);
+    }
+
+
+	return 0;
+}
