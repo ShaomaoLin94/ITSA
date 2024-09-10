@@ -1,0 +1,34 @@
+2024/08/31
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int N;
+    cin >> N;
+
+    int a, b, c;
+    while(N--){
+        cin >> a >> b >> c;
+        int sum = a+b+c;               //三項成績和
+        if(a>=60 && b>=60 && c>=60){   //皆及格就通過
+            cout << "P\n";
+        }
+        else if((a>=60 && b>=60) || (a>=60 && c>=60) || (b>=60 && c>=60)){     //先判斷是否有兩科及格，如果有，再判斷總和是否大於等於220(題目寫超過==)
+            if(sum>=220){            //有大於等於220->通過
+                cout << "P\n";
+            }
+            else{                    //沒有大於等於220->補考
+                cout << "M\n";
+            }
+        }
+        else if(a>=80 || b>=80 || c>=80){        //有兩科以上不及格->判斷是否有一科大於等於80，有就補考
+            cout << "M\n";
+        }
+        else{                                    //其餘皆為未通過
+            cout << "F\n";
+        }
+    }
+
+    return 0;
+}
