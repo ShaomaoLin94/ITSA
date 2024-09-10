@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(int argc, char *argv[]) {
+
+    double len;
+    while(scanf("%lf", &len)!=EOF){
+        double area = round(len*len*10)/10;   //四捨五入到小數點第一位
+        printf("%.1f\n", area);
+    }
+
+	return 0;
+}
