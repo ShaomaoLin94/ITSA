@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main(){
+    int power;
+    while(scanf("%d", &power)!=EOF){
+        if(power>31){                         //超出限制
+            printf("Value of more than 31\n");
+        }
+        else{                                 //幾次方就左位移幾次(等同於乘2) 比如power=2, 0001->0010->0100 也就是2^2=4 
+            int x = 1;
+            for(int i=0; i<power; i++){
+                x = x << 1;
+            }
+            printf("%d\n", x);
+        }
+    }
+
+    return 0;
+
+}
