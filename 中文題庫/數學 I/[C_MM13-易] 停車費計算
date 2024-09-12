@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(int argc, char *argv[]) {
+
+    int hr1, hr2, min1, min2;
+    while(scanf("%d %d %d %d", &hr1, &min1, &hr2, &min2)!=EOF){
+        
+        if(hr2 == 0){
+            hr2 = 24;
+        }
+
+        int time = 0;
+        
+        if(min1 > min2){          //開始時間的分鐘數如果大於結束時間的分鐘數，就將開始時間補成整點(time要補上少的時間)
+            time += 60-min1;
+            hr1++;
+            min1 = 0;            //補成整點，分鐘變為0
+        }
+        
+        time += (hr2-hr1)*60 + (min2-min1);
+ 
+
+        int cost = 0;
+        if(time > 240){   //4小時以上
+            time -= 240;
+            cost += 280 + (time/30)*60;    //280為前四小時的錢
+        }
+        else if(time>120){  //2小時~4小時
+            time -= 120;
+            cost += 120 + (time/30)*40;   //120為前兩小時的錢
+        }
+        else{               //2小時內
+            cost += (time/30)*30;
+        }
+
+        printf("%d\n", cost);
+    }
+
+
+
+	return 0;
+}
