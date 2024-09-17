@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(int argc, char *argv[]) {
+
+    double rate[4] = {0.09, 0.08, 0.07, 0.06};      //各方案通話費
+    double discount1[4] = {0.9, 0.8, 0.7, 0.6}, discount2[4] = {0.8, 0.7, 0.6, 0.5};    //各方案折扣 discount1為超過月租費1倍以內(含1倍)之折扣, discount2超過月租費1倍以上之折扣
+    int monthly_fee;   //月租費
+    double second;     //秒數
+
+    while(scanf("%d, %lf", &monthly_fee, &second)!=EOF){
+        int plan;
+        switch(monthly_fee){    //判斷是哪個方案
+            case 186:
+                plan = 0;
+                break;
+            case 386:
+                plan = 1;
+                break;
+            case 586:
+                plan = 2;
+                break;
+            case 986:
+                plan = 3;
+                break;
+        }
+
+        double totalFee = second * rate[plan];    //總費用
+        if(totalFee <= (double)monthly_fee){    //低於月租費則以月租費算
+            totalFee = (double)monthly_fee;
+        }
+        else if(totalFee<=2*(double)monthly_fee){
+            totalFee *= discount1[plan];
+        }
+        else{
+            totalFee *= discount2[plan];
+        }
+
+        printf("%d\n", (int)round(totalFee));   //記得四捨五入
+    }
+
+
+
+	return 0;
+}
