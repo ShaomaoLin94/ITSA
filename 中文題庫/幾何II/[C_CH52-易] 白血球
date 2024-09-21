@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
             float whiteCellEat = 0;
             int whiteCellStartEat = 0;
 
-            mins *= 2;
+            mins *= 2;     //每單位時間是半分鐘，所以總時間乘2
             while(mins--){
                 whiteCellGrow += 0.5;
                 virusGrow += 0.5;
@@ -27,17 +27,17 @@ int main(int argc, char *argv[]) {
                     virus *= 2;
                 }
                 
-                if(whiteCellGrow==3.0){
+                if(whiteCellGrow==3.0){   //白血球倍增
                     whiteCellGrow = 0;
                     whiteCell *= 2;
                 }
 
 
-                if(whiteCellStartEat==1 && whiteCellEat == 1.0){
+                if(whiteCellStartEat==1 && whiteCellEat == 1.0){    //非第一次吃病毒
                     virus -= whiteCell;
                     whiteCellEat = 0;
                 }
-                else if(whiteCellStartEat==0 && whiteCellEat==0.5){
+                else if(whiteCellStartEat==0 && whiteCellEat==0.5){   //第一次吃病毒
                     virus -= whiteCell;
                     whiteCellStartEat = 1;
                     whiteCellEat = 0;
