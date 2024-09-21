@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+
+    int n;
+    while(scanf("%d",&n)!=EOF){
+
+        while(n--){
+            int mins;
+            scanf("%d", &mins);
+
+            int whiteCell = 10;   
+            int virus = 89;
+            float whiteCellGrow = 0, virusGrow = 0;
+            float whiteCellEat = 0;
+            int whiteCellStartEat = 0;
+
+            mins *= 2;
+            while(mins--){
+                whiteCellGrow += 0.5;
+                virusGrow += 0.5;
+                whiteCellEat += 0.5;
+
+                if(virusGrow==2.0){       //病毒倍增
+                    virusGrow = 0;
+                    virus *= 2;
+                }
+                
+                if(whiteCellGrow==3.0){
+                    whiteCellGrow = 0;
+                    whiteCell *= 2;
+                }
+
+
+                if(whiteCellStartEat==1 && whiteCellEat == 1.0){
+                    virus -= whiteCell;
+                    whiteCellEat = 0;
+                }
+                else if(whiteCellStartEat==0 && whiteCellEat==0.5){
+                    virus -= whiteCell;
+                    whiteCellStartEat = 1;
+                    whiteCellEat = 0;
+                }
+                
+
+
+            }
+
+            printf("%d\n%d\n", whiteCell, virus);
+        }
+    }
+
+
+
+	return 0;
+}
