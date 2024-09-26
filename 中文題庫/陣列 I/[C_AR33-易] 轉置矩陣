@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+
+    int numRow, numCol;
+    while(scanf("%d %d", &numRow, &numCol)!=EOF){
+        
+        if(numRow && numCol){
+            break;
+        }
+
+        int arr[numCol][numRow];                //轉置後的矩陣(列行互換)
+        for(int row=0; row<numRow; row++){
+            for(int col=0; col<numCol; col++){
+                scanf("%d", &arr[col][row]);   //因為轉置是列行互換 所以在輸入的時候 將(i, j)的值設在(j, i)
+            }
+        }
+
+        for(int row=0; row<numCol; row++){          //輸出 注意最外層迴圈是0~numCol(原本的行是轉置後的列)
+            for(int col=0; col<numRow; col++){
+                if(col>0){
+                    printf(" %d", arr[row][col]);
+                }
+                else{
+                    printf("%d", arr[row][col]);
+                }
+            }
+            printf("\n");
+        }
+    }
+
+
+
+	return 0;
+}
