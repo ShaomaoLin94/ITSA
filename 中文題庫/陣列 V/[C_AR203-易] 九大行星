@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+
+    int test;
+    while(scanf("%d", &test)!=EOF){
+        while(test--){
+            int num;
+            scanf("%d", &num);
+            switch(num){
+                case 1:
+                    printf("1 Mercury\n");
+                    break;
+                case 2:
+                    printf("2 Venus\n");
+                    break;
+                case 3:
+                    printf("3 Earth\n");
+                    break;
+                case 4:
+                    printf("4 Mars\n");
+                    break;
+                case 5:
+                    printf("5 Juputer\n");
+                    break;
+                case 6:
+                    printf("6 Saturn\n");
+                    break;
+                case 7:
+                    printf("7 Uranus\n");
+                    break;
+                case 8:
+                    printf("8 Neptunus\n");
+                    break;
+                case 9:
+                    printf("9 Pluto\n");
+                    break;
+            }
+        }       
+    }
+
+
+
+	return 0;
+}
