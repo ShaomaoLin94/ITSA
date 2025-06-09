@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(int argc, char *argv[]) {
+
+    int n;
+    while (cin >> n) {
+
+        for (int k = 0; k < n; k++) {
+
+            int house[51] = {0}, right = 0;
+            int m, l, r, h;
+            cin >> m;
+            for (int i = 0; i < m; i++) {
+                cin >> l >> r >> h;
+
+                if (h == 0) {
+                    continue;
+                }
+
+                right = max(right, r);
+                for (int j = l; j <= r; j++) {
+                    house[j] = max(house[j], h);
+                }
+            }
+
+            for (int i = 0; i <= right; i++) {
+                if (i > 0) {
+                    cout << " " << house[i];
+                } else {
+                    cout << house[i];
+                }
+            }
+            cout << endl;
+        }
+    }
+
+    return 0;
+}
