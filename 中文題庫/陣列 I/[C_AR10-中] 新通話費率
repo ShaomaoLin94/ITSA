@@ -1,17 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
-    double rate[4] = {0.09, 0.08, 0.07, 0.06};      //各方案通話費
-    double discount1[4] = {0.9, 0.8, 0.7, 0.6}, discount2[4] = {0.8, 0.7, 0.6, 0.5};    //各方案折扣 discount1為超過月租費1倍以內(含1倍)之折扣, discount2超過月租費1倍以上之折扣
-    int monthly_fee;   //月租費
-    double second;     //秒數
+    double rate[4] = {0.09, 0.08, 0.07, 0.06}; // 各方案通話費
+    double discount1[4] = {0.9, 0.8, 0.7, 0.6}, discount2[4] = {0.8, 0.7, 0.6, 0.5}; // 各方案折扣
+    int monthly_fee;
+    double second;
 
-    while(scanf("%d, %lf", &monthly_fee, &second)!=EOF){
+    while (scanf("%d, %lf", &monthly_fee, &second) != EOF) {
         int plan;
-        switch(monthly_fee){    //判斷是哪個方案
+        switch (monthly_fee) {
             case 186:
                 plan = 0;
                 break;
@@ -26,21 +25,19 @@ int main(int argc, char *argv[]) {
                 break;
         }
 
-        double totalFee = second * rate[plan];    //總費用
-        if(totalFee <= (double)monthly_fee){    //低於月租費則以月租費算
+        double totalFee = second * rate[plan];
+        if (totalFee <= (double)monthly_fee) {
             totalFee = (double)monthly_fee;
         }
-        else if(totalFee<=2*(double)monthly_fee){
+        else if (totalFee <= 2 * (double)monthly_fee) {
             totalFee *= discount1[plan];
         }
-        else{
+        else {
             totalFee *= discount2[plan];
         }
 
-        printf("%d\n", (int)round(totalFee));   //記得四捨五入
+        cout << (int)round(totalFee) << endl;
     }
 
-
-
-	return 0;
+    return 0;
 }
