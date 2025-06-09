@@ -1,29 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
-
     int n;
-    while(scanf("%d", &n)!=EOF){
+    while (cin >> n) {
         int score;
-
-        while(n--){
-            scanf("%d", &score);
-
-            if(score>=95){
-                printf("Excellent\n");
+        while (n--) {
+            cin >> score;
+            if (score >= 95) {
+                cout << "Excellent\n";
             }
-            else if(score>=85){
-                printf("Very Good\n");
+            else if (score >= 85) {
+                cout << "Very Good\n";
             }
-            else if(score>=61){
-                printf("Good\n");
+            else if (score >= 61) {
+                cout << "Good\n";
             }
-            else{
-                printf("Careless\n");
+            else {
+                cout << "Careless\n";
             }
         }
     }
-    
-	return 0;
+    return 0;
 }
