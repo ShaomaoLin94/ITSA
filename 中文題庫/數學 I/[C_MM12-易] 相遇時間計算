@@ -1,15 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     int distance;
     double speed = 0.238;
-    while(scanf("%d", &distance)!=EOF){
-        int time = (int)ceil(distance/speed);  //ceil()可以無條件進位至整數，再用int強制轉型
-        printf("%d\n", time);
-    } 
+    while (cin >> distance) {
+        int time = (int)ceil(distance / speed);
+        cout << time << endl;
+    }
 
-	return 0;
+    return 0;
 }
