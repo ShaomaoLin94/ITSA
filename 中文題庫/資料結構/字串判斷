@@ -1,18 +1,17 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     char str;
     int cnt = 0;
-    while(scanf("%c", &str)!=EOF){
-        if(str == '2'){
+    while (cin.get(str)) {
+        if (str == '2') {
             cnt++;
         }
     }
 
-    printf("%d\n", cnt);
+    cout << cnt << endl;
 
-	return 0;
+    return 0;
 }
