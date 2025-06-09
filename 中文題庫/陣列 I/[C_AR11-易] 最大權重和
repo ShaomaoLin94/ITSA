@@ -1,42 +1,39 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <math.h>
+// c++11 才能過
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     int N;
-    scanf("%d", &N);
+    cin >> N;
 
-    while(N--){
+    while (N--) {
         int m, n, k;
-        scanf("%d %d %d", &m, &n, &k);
+        cin >> m >> n >> k;
 
-        int arr[m][n];
-        for(int i=0; i<m; i++){          //讀取陣列
-            for(int j=0; j<n; j++){
-                scanf("%d", *(arr+i)+j);
+        vector<vector<int>> arr(m, vector<int>(n));
+        for (int i = 0; i < m; i++) { // 讀取陣列
+            for (int j = 0; j < n; j++) {
+                cin >> arr[i][j];
             }
         }
 
-        int ans = INT_MIN, tmp;            //將ans預設極小值, tmp儲存每次計算結果
-        for(int row=k-1; row<m; row+=k){                //以m*n中陣列每個可能的k*k陣列的左下角開始
-            for(int col=k-1; col<n; col+=k){
-                
+        int ans = INT_MIN, tmp;
+        for (int row = k - 1; row < m; row += k) { // 以m*n中陣列每個可能的k*k陣列的左下角開始
+            for (int col = k - 1; col < n; col += k) {
+
                 tmp = 0;
-                for(int y=row; y>row-k; y--){                 //將k*k陣列中所有值相加(每次固定列，透過行往上加)
-                    for(int x=col; x>col-k; x--){            
+                for (int y = row; y > row - k; y--) { // 將k*k陣列中所有值相加
+                    for (int x = col; x > col - k; x--) {
                         tmp += arr[y][x];
                     }
                 }
-                ans = fmax(ans, tmp);
+                ans = max(ans, tmp);
             }
         }
 
-        printf("%d\n", ans);
+        cout << ans << endl;
     }
 
-
-
-	return 0;
+    return 0;
 }
