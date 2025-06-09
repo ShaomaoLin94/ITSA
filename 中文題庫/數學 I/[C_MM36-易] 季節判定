@@ -1,25 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     int month;
-    while(scanf("%d\n", &month)!=EOF){
-        if(month>=3 && month<=5){
-            printf("Spring\n");
+    while (cin >> month) {
+        if (month >= 3 && month <= 5) {
+            cout << "Spring" << endl;
         }
-        else if(month>=6 && month<=8){
-            printf("Summer\n");
+        else if (month >= 6 && month <= 8) {
+            cout << "Summer" << endl;
         }
-        else if(month>=9 && month<=11){
-            printf("Autumn\n");
+        else if (month >= 9 && month <= 11) {
+            cout << "Autumn" << endl;
         }
-        else{
-            printf("Winter\n");
+        else {
+            cout << "Winter" << endl;
         }
     }
 
-
-
-	return 0;
+    return 0;
 }
