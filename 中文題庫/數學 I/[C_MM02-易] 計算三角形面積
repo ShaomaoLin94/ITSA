@@ -1,13 +1,11 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
+using namespace std;
 
-int main(){
+int main() {
 
     int base, height;
-
-    scanf("%d %d", &base, &height);
-
-    printf("%.1f\n", (double)(base*height)/2);
+    cin >> base >> height;
+    cout << fixed << setprecision(1) << (double)(base * height) / 2 << endl;
 
     return 0;
-
 }
