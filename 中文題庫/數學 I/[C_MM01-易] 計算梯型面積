@@ -1,15 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     double a, b, c;
-    while(scanf("%lf %lf %lf", &a, &b, &c)!=EOF){
-        
-        double ans = (a+b)*c/2;
-        printf("Trapezoid area:%.1f\n", ans);
-        
+    while (cin >> a >> b >> c) {
+        double ans = (a + b) * c / 2;
+        cout << fixed << setprecision(1) << "Trapezoid area:" << ans << endl;
     }
-    
-	return 0;
+
+    return 0;
 }
