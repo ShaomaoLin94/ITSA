@@ -24,7 +24,6 @@ int main(void)
                 break;
             }
         }
-        
         int max = 0, min = 0;
         
         //pos+1 : 第一個非0數字的位置
