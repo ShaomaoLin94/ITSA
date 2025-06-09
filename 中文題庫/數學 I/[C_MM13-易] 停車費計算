@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
 
         int time = 0;
 
-        if (min1 > min2) {
+        if (min1 > min2) {  // 10:50 ~ 12:10
             time += 60 - min1;
             hr1++;
             min1 = 0;
