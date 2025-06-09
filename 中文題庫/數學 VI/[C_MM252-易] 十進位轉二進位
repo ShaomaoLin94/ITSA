@@ -1,26 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     int num;
-    while(scanf("%d", &num)!=EOF){
+    while (cin >> num) {
         int bits[32] = {0};
 
         int pos = 0;
-        while(num){
-            bits[pos] = num%2;
-            num /= 2;
+        int tmp = num;
+        while (tmp) {
+            bits[pos] = tmp % 2;
+            tmp /= 2;
             pos++;
         }
 
-        for(int i=31; i>=0; i--){
-            printf("%d", bits[i]);
+        for (int i = 31; i >= 0; i--) {
+            cout << bits[i];
         }
-        printf("\n");
+        cout << endl;
     }
 
-
-
-	return 0;
+    return 0;
 }
