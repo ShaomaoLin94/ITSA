@@ -1,88 +1,75 @@
-//2024/09/01 
+#include <bits/stdc++.h>
+using namespace std;
 
-//這題可能可以再優化寫法，但懶得想了...
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-
-int main(){
-
+int main() {
     int n;
-    scanf("%d", &n);
+    cin >> n;
 
-    //先準備好詞庫，等等直接用這些判斷
-    char sub[6][5] = {"I", "He", "She", "They", "Mary", "John"};
-    char ver[4][5] = {"love", "like", "see", "find"};
-    char obj[6][5] = {"me", "him", "her", "them", "Mary", "John"};
+    // 詞庫
+    vector<string> sub = {"I", "He", "She", "They", "Mary", "John"};
+    vector<string> ver = {"love", "like", "see", "find"};
+    vector<string> obj = {"me", "him", "her", "them", "Mary", "John"};
 
+    for (int i = 0; i < n; i++) {
+        string subject, verb, object;
+        bool sub_check = false, ver_check = false;
 
-    char str[5];
-    for(int i=0; i<n; i++){   
-        char subject[5], verb[5], object[11];
-        int sub_check = 0, ver_check = 0;   //判斷是否已找出一個主詞和動詞
+        for (int j = 0; j < 3; j++) {
+            string str;
+            cin >> str;
 
-        for(int j=0; j<3; j++){
-            scanf(" %s", str);
-
-            if(!ver_check){             //因為無法知道主詞動詞受詞的出現順序，所以每次都要判斷
-                
-                for(int k=0; k<4; k++){
-                    if(!strcmp(ver[k], str)){
-                        ver_check = 1;
-                        strcpy(verb, str);
+            if (!ver_check) {
+                for (int k = 0; k < 4; k++) {
+                    if (ver[k] == str) {
+                        ver_check = true;
+                        verb = str;
                         break;
                     }
                 }
-                
-                if(ver_check) continue;   //找到動詞就直接執行下一迴圈
-
+                if (ver_check) continue;
             }
-            if(!sub_check){                   //如果出現主詞和動詞皆是Mary或John的其中一個 先隨便設定其中一個就好 最後再處理     
-                
-                for(int k=0; k<6; k++){
-                    if(!strcmp(sub[k], str)){
-                        sub_check = 1;
-                        strcpy(subject, str);
+
+            if (!sub_check) {
+                for (int k = 0; k < 6; k++) {
+                    if (sub[k] == str) {
+                        sub_check = true;
+                        subject = str;
                         break;
                     }
                 }
-
-                if(sub_check) continue;
+                if (sub_check) continue;
             }
-            
-            for(int k=0; k<6; k++){            //尋找受詞(可能已經與主詞相同，但無所謂，最後再判斷即可)
-                if(!strcmp(obj[k], str)){
-                    strcpy(object, str);
+
+            for (int k = 0; k < 6; k++) {
+                if (obj[k] == str) {
+                    object = str;
                     break;
                 }
             }
-            
         }
 
-        if((subject[0]=='M'||subject[0]=='J') && (object[0]=='M'||object[0]=='J')){    
-            printf("%s %ss %s or %s %ss %s\n", subject, verb, object, object, verb, subject);
+        if ((subject == "Mary" || subject == "John") && (object == "Mary" || object == "John")) {
+            cout << subject << " " << verb << "s " << object << " or " << object << " " << verb << "s " << subject << endl;
         }
-        else if(subject[0]=='I' && object[0]=='m'){   //myself情形
-            printf("I %s myself\n", verb);
+        else if (subject == "I" && object == "me") {
+            cout << "I " << verb << " myself" << endl;
         }
-        else if(!strcmp(subject, "He") && !strcmp(object, "him")){    //himself情形
-            printf("He %ss himself\n", verb);
+        else if (subject == "He" && object == "him") {
+            cout << "He " << verb << "s himself" << endl;
         }
-        else if(!strcmp(subject, "She") && !strcmp(object, "her")){   //herself情形
-            printf("She %ss herself\n", verb);
+        else if (subject == "She" && object == "her") {
+            cout << "She " << verb << "s herself" << endl;
         }
-        else if(!strcmp(subject, "They") && !strcmp(object, "them")){  //themselves情形
-            printf("They %s themselves\n", verb);
+        else if (subject == "They" && object == "them") {
+            cout << "They " << verb << " themselves" << endl;
         }
-        else if(!strcmp(subject, "I") || !strcmp(subject, "They")){ 
-            printf("%s %s %s\n", subject, verb, object);
+        else if (subject == "I" || subject == "They") {
+            cout << subject << " " << verb << " " << object << endl;
         }
-        else{
-            printf("%s %ss %s\n", subject, verb, object);
+        else {
+            cout << subject << " " << verb << "s " << object << endl;
         }
     }
 
     return 0;
-    
 }
