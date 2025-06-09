@@ -1,14 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     double len;
-    while(scanf("%lf", &len)!=EOF){
-        double area = round(len*len*10)/10;   //四捨五入到小數點第一位
-        printf("%.1f\n", area);
+    while (cin >> len) {
+        double area = round(len * len * 10) / 10; // 四捨五入到小數點第一位
+        cout << fixed << setprecision(1) << area << endl;
     }
 
-	return 0;
+    return 0;
 }
