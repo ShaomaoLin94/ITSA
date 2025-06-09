@@ -1,14 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     int mile;
-    while(scanf("%d", &mile)!=EOF){
-        double km = round((mile*1.6)*10)/10;
-        printf("%.1f\n", km);
+    while (cin >> mile) {
+        double km = round((mile * 1.6) * 10) / 10;
+        cout << fixed << setprecision(1) << km << endl;
     }
 
-
-	return 0;
+    return 0;
 }
