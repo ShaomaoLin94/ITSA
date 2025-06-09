@@ -3,18 +3,18 @@ using namespace std;
 
 int main(void)
 {
-	vector<int> arr;
+    vector<int> arr;
     int num;
-    while(scanf("%d ", &num)!=EOF){
+    while (cin >> num) {
         arr.push_back(num);
     }
-	int size = arr.size();
-    for(int i=size-1; i>=0; i--){
+    int size = arr.size();
+    for (int i = size - 1; i >= 0; i--) {
         cout << arr[i];
-        if(i>0){
+        if (i > 0) {
             cout << ' ';
         }
     }
     cout << '\n';
-	return 0;
+    return 0;
 }
