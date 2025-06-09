@@ -1,31 +1,22 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-int cmp(const void *a, const void *b){        
-    return *(int *)b-*(int *)a;
-}
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     int n;
-
-    while(scanf("%d", &n)!=EOF){
-
-        int bus_time[23] = {0};   //共有23個時段(24不需考慮)
+    while (cin >> n) {
+        vector<int> bus_time(23, 0); // 共有23個時段(24不需考慮)
         int start, end;
-        for(int i=0; i<n; i++){
-            scanf("%d %d", &start, &end);
-            for(int j=start; j<end; j++){     //start~end-1的時間所需的公車數+1 (end不需要)
-                bus_time[j-1]++;
+        for (int i = 0; i < n; i++) {
+            cin >> start >> end;
+            for (int j = start; j < end; j++) { // start~end-1
+                bus_time[j - 1]++;
             }
-        } 
+        }
 
-        qsort(bus_time, 23, sizeof(int), cmp);   //sort in ascending order
-
-        printf("%d\n", bus_time[0]);    //回傳所需最多的公車數的時段
-
+        sort(bus_time.rbegin(), bus_time.rend()); // 由大到小排序
+        cout << bus_time[0] << endl; // 回傳所需最多的公車數的時段
     }
 
-
-	return 0;
+    return 0;
 }
