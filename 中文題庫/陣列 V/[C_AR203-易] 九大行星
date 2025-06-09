@@ -1,46 +1,44 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     int test;
-    while(scanf("%d", &test)!=EOF){
-        while(test--){
+    while (cin >> test) {
+        while (test--) {
             int num;
-            scanf("%d", &num);
-            switch(num){
+            cin >> num;
+            switch (num) {
                 case 1:
-                    printf("1 Mercury\n");
+                    cout << "1 Mercury" << endl;
                     break;
                 case 2:
-                    printf("2 Venus\n");
+                    cout << "2 Venus" << endl;
                     break;
                 case 3:
-                    printf("3 Earth\n");
+                    cout << "3 Earth" << endl;
                     break;
                 case 4:
-                    printf("4 Mars\n");
+                    cout << "4 Mars" << endl;
                     break;
                 case 5:
-                    printf("5 Juputer\n");
+                    cout << "5 Juputer" << endl;
                     break;
                 case 6:
-                    printf("6 Saturn\n");
+                    cout << "6 Saturn" << endl;
                     break;
                 case 7:
-                    printf("7 Uranus\n");
+                    cout << "7 Uranus" << endl;
                     break;
                 case 8:
-                    printf("8 Neptunus\n");
+                    cout << "8 Neptunus" << endl;
                     break;
                 case 9:
-                    printf("9 Pluto\n");
+                    cout << "9 Pluto" << endl;
                     break;
             }
-        }       
+        }
     }
 
-
-
-	return 0;
+    return 0;
 }
