@@ -1,14 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(int argc, char *argv[]) {
 
     long long num1, num2;
-    
-    while(scanf("%lld %lld", &num1, &num2)!=EOF){
-        long long sum = num1+num2;
-        printf("%lld\n", sum*sum);
+    while (cin >> num1 >> num2) {
+        long long sum = num1 + num2;
+        cout << sum * sum << endl;
     }
 
-	return 0;
+    return 0;
 }
